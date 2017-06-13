@@ -67,8 +67,24 @@ public class DataService  {
 			return _connection.Table<Messegaealert>();
 		}
 
+		public IEnumerable<Games> ViewGames(){
+			return _connection.Table<Games>();
+		}
+
 		public IEnumerable<Messegaealert> ViewInfoint(){
 			return _connection.Table<Messegaealert>().Where(x => x.Id == number);
+		}
+
+		public IEnumerable<Games> ViewGamesInt(){
+			return _connection.Table<Games>().Where(x => x.Id == number);
+		}
+
+		public IEnumerable<Objective> ViewObjectiveInt(){
+			return _connection.Table<Objective>().Where(x => x.Id == number);
+		}
+
+		public IEnumerable<Option> ViewOptionInt(){
+			return _connection.Table<Option>().Where(x => x.Id == number);
 		}
 
 		public	void Updatemessege(int id,int ico, string titutext, string textcuerp,int aperc)
@@ -80,10 +96,18 @@ public class DataService  {
 					Ico = ico,
 					TituText=titutext,
 					Textcuerp = textcuerp,
-					Aperc = aperc
+					Aperc_Id = aperc
 				}
 			});
 		}
+
+
+
+
+
+
+
+
 
 		public void CreateDB(){
 			_connection.DropTable<Messegaealert> ();
@@ -95,14 +119,14 @@ public class DataService  {
 					Ico = 1,
 					TituText="Aqui",
 					Textcuerp = "Perez",
-					Aperc = 1
+					Aperc_Id = 1
 				},
 				new Messegaealert{
 					Id = 2,
 					Ico = 1,
 					TituText="Aqui1",
 					Textcuerp = "yolitos",
-					Aperc = 1
+					Aperc_Id = 1
 				}
 			});
 		}

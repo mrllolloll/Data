@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DB;
 
-public class Mostrarmessage : MonoBehaviour {
+public class Mostrarmessage : ConexionDB {
 
 	[Header("Titulo")]
 	public Text TextObjTitulo;//titulo
@@ -15,7 +16,6 @@ public class Mostrarmessage : MonoBehaviour {
 	public GameObject ventana;//y la ventana que se esta usando
 	[Header("Opcion para no mostrar ventana en el juego despues de haber mostrado su mensaje")]
 	public bool MostrarVentana;
-	private DataService db = new DataService();
 
 	void Start () {		
 		//inicializando la base de datos

@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour {
 
 	public Text TimerText;
-	private float StartTime;
+	public float StartTime;
 	// Use this for initialization
 	void Start () {
-		StartTime = 60;
+
+		StartTime = 20;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		float t = StartTime - Time.time;
-		string Minutos =((int)t /60).ToString();
-		string Segundos =((int)t % 60).ToString("f0");
-		TimerText.text = Minutos + ":" + Segundos;
+		if (TimerText.text != "0") {
+			StartTime = StartTime - 1 * Time.deltaTime;
+			TimerText.text = "" + StartTime.ToString ("f0");	
+		} else {
+			SceneManager.LoadScene ("Perder");
+		}
 
 	}
 }
