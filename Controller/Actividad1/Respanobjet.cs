@@ -65,9 +65,9 @@ public class Respanobjet : ConexionDB {
 			string Obt = ManejoInfoR (ObtB,db.number.ToString());
 			GameObject chull= null;
 			Debug.Log (Obt);
-			if (Obt=="Calculadora") {
+			if (Obt=="calculadora") {
 				chull=ObjetoEnElJuego1;
-			}else if (Obt=="Camara") {
+			}else if (Obt=="camara") {
 				chull=ObjetoEnElJuego2;
 			}else if(Obt=="it"){
 				chull=ObjetoEnElJuego3;
@@ -99,6 +99,7 @@ public class Respanobjet : ConexionDB {
 			if (Int32.Parse (Score.transform.GetComponent<Text> ().text) > 0) {
 				Suma = Suma - 5;	
 				Score.transform.GetComponent<Text> ().text = Suma.ToString ();
+				Handheld.Vibrate ();
 			}
 			StrikeM();
 			Field.text = "";
@@ -116,5 +117,10 @@ public class Respanobjet : ConexionDB {
 
 	void Start () {		
 		Reini ();
-	}	
+	}
+
+	void Update(){
+	
+		Field.text=Field.text.ToLower ();
+	}
 }

@@ -18,7 +18,9 @@ public class Movimientoycollisones : MonoBehaviour, IBeginDragHandler, IDragHand
 		starparet = transform.parent;
 
 		GetComponent<CanvasGroup>().blocksRaycasts = false;
-		drager.GetComponent<LayoutElement>().ignoreLayout = true;
+
+		drager.GetComponent<LayoutElement>().ignoreLayout = true;	
+
 		drager.transform.SetParent(drager.transform.parent.parent);
 	}
 
@@ -42,8 +44,9 @@ public class Movimientoycollisones : MonoBehaviour, IBeginDragHandler, IDragHand
 		if(transform.parent == starparet){
 			transform.position = PositionStart;
 		}
-		drager.GetComponent<LayoutElement>().ignoreLayout = false;
 
+		drager.GetComponent<LayoutElement> ().ignoreLayout = false;
+	
 	}
 
 	#endregion

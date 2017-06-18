@@ -71,6 +71,14 @@ public class DataService  {
 			return _connection.Table<Games>();
 		}
 
+		public IEnumerable<Activities> ViewActivities(){
+			return _connection.Table<Activities>().Where(x => x.Id == number);
+		}
+
+		public IEnumerable<Activities> ViewActivitiesAll(){
+			return _connection.Table<Activities>();
+		}
+
 		public IEnumerable<Messegaealert> ViewInfoint(){
 			return _connection.Table<Messegaealert>().Where(x => x.Id == number);
 		}

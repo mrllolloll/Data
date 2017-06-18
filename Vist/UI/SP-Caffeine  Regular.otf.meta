@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: eb21f81046fa1e24cb433dfff4516535
+timeCreated: 1497776639
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SP Caffeine  Regular
+  fontNames:
+  - SP Caffeine  Regular
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

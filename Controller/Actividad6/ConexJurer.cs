@@ -27,7 +27,8 @@ public class ConexJurer : ConexionDB {
 
 	[Header ("Score")]
 	public Text Score;
-
+	[Header("Texto objetivo")]
+	public Text TextObjetive;
 
 	private int NumberSlot;
 	private string Objetivo;
@@ -41,7 +42,7 @@ public class ConexJurer : ConexionDB {
 
 	private void reshuffle(string[] texts)
 	{
-		for (int t = 0; t < texts.Length; t++ )
+		for (int t = 1; t < texts.Length; t++ )
 		{
 			string tmp = texts[t];
 			int r = UnityEngine.Random.Range(t, texts.Length);
@@ -50,14 +51,17 @@ public class ConexJurer : ConexionDB {
 		}
 	}
 
+
+
 	private void ManejoInfo (string[] msg){
-		if (msg[3]=="4") {
+		if (msg[3]=="6") {
 			db.number = Int32.Parse(msg [2]);
 			var OptB = db.ViewOptionInt();
-			string[] Opt = ManejoInfoR (OptB,db.number.ToString()).Split('_');
+			string[] Opt =  ManejoInfoR (OptB,db.number.ToString()).Split('/');
 			ScoreSum= Ponit(OptB,db.number.ToString());
+			TextObjetive.text = Opt[0];
 			reshuffle (Opt);
-			for (int I = 0; I < Opt.Length; I++) {
+			for (int I = 1; I < Opt.Length; I++) {
 				GameObject Slot = (GameObject)Instantiate(PanelSlot);
 				GameObject instan = (GameObject)Instantiate (Img);
 				Text Texto = (Text)Instantiate (decir);
@@ -76,9 +80,10 @@ public class ConexJurer : ConexionDB {
 			Objetivo= ManejoInfoR(ObjT,db.number.ToString());
 			string[] Obt = Objetivo.Split(' ');
 			for (int i = 0; i < Obt.Length; i++) {
+				int O = 1 + i;
 				GameObject Slot0 = (GameObject)Instantiate(PanelSlot);
 				Slot0.transform.parent = PanelArriba.transform;
-				Slot0.name = "slot"+i.ToString();
+				Slot0.name = "slot"+O.ToString();
 				Slot0.tag="Objetive";
 			}
 
@@ -105,7 +110,7 @@ public class ConexJurer : ConexionDB {
 
 	void Update(){
 		string  Concurr="";
-		for (int i = 0; i <NumberSlot ; i++) {
+		for (int i = 1; i <NumberSlot ; i++) {
 			GameObject Hol = GameObject.Find("slot" + i.ToString());
 			if (Hol.transform.childCount != 0) {
 				string mostr = Hol.transform.GetChild (0).GetComponentInChildren<UnityEngine.UI.Text> ().text;

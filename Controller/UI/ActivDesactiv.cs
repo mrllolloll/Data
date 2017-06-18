@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class ActivDesactiv : MonoBehaviour {
 
+	[Header("tablon de mensajes")]
 	public GameObject ObjetoDeJuego;
+
 	public bool NoIniciarElemento;
-	// Use this for initialization
 
 	void Start () {
 	

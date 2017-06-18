@@ -26,7 +26,24 @@ namespace DB{
 			return Re;
 
 		}
-			
+
+		protected string ManejoInfoR(IEnumerable<Activities> Var,string Where){
+
+			string Re = "";
+
+			foreach (var Arr in Var) {
+				string[] info = Arr.Mostrar ();
+
+				if (info [0] == Where) {
+
+					Re=info[2];
+				}
+
+			}
+
+			return Re;
+
+		}
 
 		protected string ManejoInfoR(IEnumerable<Option> Var,string Where){
 
