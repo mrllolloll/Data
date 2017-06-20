@@ -23,7 +23,7 @@ public class TextBs : ConexionDB {
 	private string Objetivo;
 	private int Suma=0;
 	private int Point;
-	private string[] Option= new string[7];
+	private string[] Option= new string[100];
 	private void ManejoInfo(IEnumerable<Games> msg){
 		foreach (var messege in msg) {
 			CambioText(messege.Mostrar ());
@@ -51,7 +51,8 @@ public class TextBs : ConexionDB {
 			}
 			db.number = Int32.Parse(msg [1]);
 			var ObtB = db.ViewObjectiveInt();
-			Objetivo = ManejoInfoR (ObtB,db.number.ToString());		
+			Objetivo = ManejoInfoR (ObtB,db.number.ToString());
+			Debug.Log (ManejoInfoR (ObtB,db.number.ToString()));
 		}
 	}
 
@@ -90,7 +91,8 @@ public class TextBs : ConexionDB {
 	}
 
 	private void Reini(){
-		db.number = FindInt;
+		Debug.Log (Objetivo);
+		db.number = UnityEngine.Random.Range(10,18);
 		var InitGame = db.ViewGamesInt ();
 		ManejoInfo (InitGame);
 	}

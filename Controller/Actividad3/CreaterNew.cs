@@ -9,8 +9,6 @@ using DB;
 public class CreaterNew : ConexionDB {
 	[Header("strike")]
 	public  GameObject Strike;
-	[Header("Target de Opciones")]
-	public int FindInt=4;
 	[Header("Text score")]
 	public Text Score;
 	[Header("Titulo de la pregunta")]
@@ -70,7 +68,7 @@ public class CreaterNew : ConexionDB {
 			db.number = Int32.Parse(msg [1]);
 			var Objt = db.ViewObjectiveInt();
 			ObjT = ManejoInfoR (Objt,db.number.ToString());
-
+			Debug.Log (ObjT);
 		}
 	}
 
@@ -94,7 +92,7 @@ public class CreaterNew : ConexionDB {
 
 
 	private void Reini(){
-		db.number = FindInt;
+		db.number = UnityEngine.Random.Range(19,21);
 		var InitGame = db.ViewGamesInt ();
 		ManejoInfo (InitGame);
 	}

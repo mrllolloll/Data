@@ -26,7 +26,6 @@ public class Respanobjet : ConexionDB {
 	public GameObject ObjetoEnElJuego3;
 
 	private string ObjetivoActual="";
-	private int numberfind=3;
 	private int Suma=0;
 	private int Point=0;
 	private void ToMostrarMessege(IEnumerable<Games> msg){
@@ -53,7 +52,7 @@ public class Respanobjet : ConexionDB {
 	}		
 
 	private void Reini(){
-		db.number = numberfind;
+		db.number = UnityEngine.Random.Range(24,25);
 		var message = db.ViewGamesInt();
 		ToMostrarMessege (message);
 	}

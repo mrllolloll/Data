@@ -96,7 +96,7 @@ public class ConexJurer : ConexionDB {
 		}
 	}
 	private void Reini(){
-		db.number = FindInt;
+		db.number = UnityEngine.Random.Range(22,23);
 		var InitGame = db.ViewGamesInt ();
 		ManejoInfo (InitGame);
 		Cont = 0;

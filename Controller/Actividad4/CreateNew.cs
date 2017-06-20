@@ -22,16 +22,12 @@ public class CreateNew : ConexionDB {
 	public GameObject puntos;
 	[Header("strike")]
 	public GameObject Strike;
-
-	public int Numberfind;
 	private string ObjetiveT;
 	private string[] Option;
 	private int Point=0;
 	private void ToMostrarMessege(IEnumerable<Games> msg){
 		foreach (var messege in msg) {
-
 			Genera(messege.Mostrar());
-
 		}
 	}
 
@@ -72,6 +68,7 @@ public class CreateNew : ConexionDB {
 			db.number = Int32.Parse(msg [1]);
 			var ObtB = db.ViewObjectiveInt();
 			string Obt = ManejoInfoR (ObtB,db.number.ToString());
+			Debug.Log (Obt);
 			ObjetiveT = Obt+" ";
 		}
 	}
@@ -109,9 +106,11 @@ public class CreateNew : ConexionDB {
 	}
 
 	private void Reini(){
-		db.number = Numberfind;
+		db.number = UnityEngine.Random.Range(1,9);
+		Debug.Log (db.number.ToString());
 		var message = db.ViewGamesInt();
 		ToMostrarMessege (message);
+		Debug.Log (ObjetiveT);
 	}
 	// Use this for initialization
 	void Start () {
